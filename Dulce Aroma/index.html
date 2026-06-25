@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>Cafetería Dulce Aroma</title>
+</head>
+<body>
+    <header>
+        <h1>Cafetería Dulce Aroma</h1>
+        <nav>
+            <a href="#menu">Menú</a>
+            <a href="#galeria">Galería</a>
+            <a href="#pago">Pedir y Pagar</a>
+            <a href="#contacto">Contacto</a>
+        </nav>
+    </header>
+
+    <section id="hero">
+        <div class="hero-contenido">
+            <h2>Tu pausa perfecta, un sorbo a la vez</h2>
+            <p>Disfruta de los mejores cafés, pasteles, galletas, entre otros y un ambiente acogedor.</p>
+            <a href="#menu" class="btn-ordenar-hero">📖 Ver el Menú</a>
+        </div>
+    </section>
+
+    <section id="menu">
+        <h2>Nuestro Menú</h2>
+        <p style="text-align: center; color: #d4a373; margin-top: -20px; margin-bottom: 30px; font-weight: bold;">
+            💡 Selecciona los productos que deseas ordenar marcando su casilla para agregarlos al carrito.
+        </p>
+
+        <h3 class="categoria-titulo">☕ Cafés y Tés</h3>
+        <div class="menu-items">
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Café Espresso" data-precio="30" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQmIRm3V7w7w0sRTW1RXP-wiH-LFimWmXL990PZhrsKFg&s=10" alt="Café Espresso">
+                <h3>Café Espresso</h3>
+                <p>Intenso y aromático.</p>
+                <p><strong>Precio: $30</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Capuccino" data-precio="45" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?w=400&q=80" alt="Capuccino">
+                <h3>Capuccino</h3>
+                <p>Suave con espuma de leche.</p>
+                <p><strong>Precio: $45</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Latte Helado" data-precio="55" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1517701550927-30cf4ba1dba5?w=400&q=80" alt="Latte Helado">
+                <h3>Latte Helado</h3>
+                <p>Refrescante con tu sirope favorito.</p>
+                <p><strong>Precio: $55</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Té Chai" data-precio="40" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1576092768241-dec231879fc3?w=400&q=80" alt="Té Chai">
+                <h3>Té Chai</h3>
+                <p>Especiado y reconfortante.</p>
+                <p><strong>Precio: $40</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Matcha Latte" data-precio="60" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSI5KkGDBp0HrWc9wqDhGyXibIN6ZqJ8dhCoqFsxSRZpA&s=10" alt="Matcha Latte">
+                <h3>Matcha Latte</h3>
+                <p>Té verde matcha premium con leche cremosa.</p>
+                <p><strong>Precio: $60</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Café Americano" data-precio="28" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQjwFMiTx05EbyUVYFF8wFoeOh_jXd0svQvwpdeOE3l6A&s=10   " alt="Café Americano">
+                <h3>Café Americano</h3>
+                <p>El clásico balanceado y negro.</p>
+                <p><strong>Precio: $28</strong></p>
+            </div>
+        </div>
+
+        <h3 class="categoria-titulo">🍰 Repostería y Postres</h3>
+        <div class="menu-items">
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Pastel de Chocolate" data-precio="70" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587?w=400&q=80" alt="Pastel de Chocolate">
+                <h3>Pastel de Chocolate</h3>
+                <p>Intenso, húmedo y con cobertura de fudge.</p>
+                <p><strong>Precio: $70</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Cheesecake de Frutos Rojos" data-precio="75" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?w=400&q=80" alt="Cheesecake de Frutos Rojos">
+                <h3>Cheesecake de Frutos Rojos</h3>
+                <p>Cremoso con un toque frutal de la casa.</p>
+                <p><strong>Precio: $75</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Pastel de Zanahoria" data-precio="65" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQEPfPgHL24uP8hipoePwvhKbEqTxUzkUDBOKJVycBcJw&s=10" alt="Pastel de Zanahoria">
+                <h3>Pastel de Zanahoria</h3>
+                <p>Con glaseado artesanal de queso crema.</p>
+                <p><strong>Precio: $65</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Galleta de Chispas" data-precio="25" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1499636136210-6f4ee915583e?w=400&q=80" alt="Galleta de Chispas">
+                <h3>Galleta de Chispas</h3>
+                <p>Clásica, suave por dentro y crujiente por fuera.</p>
+                <p><strong>Precio: $25</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Galleta de Avena y Pasas" data-precio="28" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQc60774wLNaiEViTH5WI3rwyEFjQ9xJ7stfJJkHptGFg&s=10" alt="Galleta de Avena y Pasas">
+                <h3>Galleta de Avena y Pasas</h3>
+                <p>Suave, horneada con un toque de canela.</p>
+                <p><strong>Precio: $28</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Macarons" data-precio="30" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1569864358642-9d1684040f43?w=400&q=80" alt="Macarons">
+                <h3>Macarons</h3>
+                <p>Delicados y coloridos (pregunta por sabores).</p>
+                <p><strong>Precio: $30 c/u</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Flan Napolitano" data-precio="40" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRFk_K4dumzVgPyysHRKoHnbrZKIaTlbUhqAaXHP0om-w&s=10" alt="Flan Napolitano">
+                <h3>Flan Napolitano</h3>
+                <p>Tradicional, cremoso y con caramelo líquido.</p>
+                <p><strong>Precio: $40</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Helado Artesanal" data-precio="45" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRnHNlh9ncd2d5G4mqAUr-sX0BxSiETCWOFZ6rnuRSAmA&s=10" alt="Helado Artesanal">
+                <h3>Helado Artesanal</h3>
+                <p>Dos bolas. Vainilla, chocolate o fresa natural.</p>
+                <p><strong>Precio: $45</strong></p>
+            </div>
+        </div>
+
+        <h3 class="categoria-titulo">🥞 Crepas Especiales</h3>
+        <div class="menu-items">
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Crepa de Nutella y Fresa" data-precio="65" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTdSXKg05pyYiAqVXtv2dRoj9qgXlgzrr70gmMxi5o0lg&s=10" alt="Crepa de Nutella y Fresa">
+                <h3>Crepa de Nutella y Fresa</h3>
+                <p>Con trozos de fresa fresca y azúcar glas.</p>
+                <p><strong>Precio: $65</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Crepa de Cajeta y Nuez" data-precio="60" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR_FBdLoaJ8VzHOCW7q0fO7JmixE_Z1niDUc-bhKemxsQ&s=10" alt="Crepa de Cajeta y Nuez">
+                <h3>Crepa de Cajeta y Nuez</h3>
+                <p>Deliciosa cajeta quemada con nuez picada.</p>
+                <p><strong>Precio: $60</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Crepa Salada" data-precio="70" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQT6ddApdtH9ifjzyyY0jz7LGMkp-iUE2AlLTm9S-ysqg&s=10" alt="Crepa Salada">
+                <h3>Crepa Salada (Jamón y Queso)</h3>
+                <p>Queso manchego derretido con jamón de pavo.</p>
+                <p><strong>Precio: $70</strong></p>
+            </div>
+        </div>
+
+        <h3 class="categoria-titulo">🍳 Desayunos (Disponibles todo el día)</h3>
+        <div class="menu-items">
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Chilaquiles" data-precio="95" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1640719028782-8230f1bdc42a?w=400&q=80" alt="Chilaquiles">
+                <h3>Chilaquiles Dulce Aroma</h3>
+                <p>Verdes o rojos, con crema, queso y pollo.</p>
+                <p><strong>Precio: $95</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Molletes" data-precio="55" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVa-5OOUhj9r9dd3l69wD__QmBYZTi6B2bVAshJQEziQ&s=10" alt="Molletes Tradicionales">
+                <h3>Molletes Tradicionales</h3>
+                <p>Con frijoles refritos, queso fundido y pico de gallo.</p>
+                <p><strong>Precio: $55</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Panini de Pollo" data-precio="85" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://images.unsplash.com/photo-1521390188846-e2a3a97453a0?w=400&q=80" alt="Panini de Pollo">
+                <h3>Panini de Pollo Chipotle</h3>
+                <p>Pechuga a la plancha, queso y aderezo chipotle.</p>
+                <p><strong>Precio: $85</strong></p>
+            </div>
+            <div class="menu-item" onclick="toggleSeleccion(this)">
+                <input type="checkbox" class="chk-producto" data-nombre="Hot Cakes" data-precio="75" onclick="event.stopPropagation(); modificarDesdeCheckbox(this);">
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRuvuQysqnkXw8QtqJD_uA3AUXVx_YZf9A7oJjd8m1IMw&s=10" alt="Hot Cakes con Tocino">
+                <h3>Hot Cakes con Tocino (C/S huevo)</h3>
+                <p>Tres piezas esponjosas acompañadas de miel y tocino.</p>
+                <p><strong>Precio: $75</strong></p>
+            </div>
+        </div>
+
+        <div class="contenedor-accion-menu">
+            <a href="#pago" class="btn-continuar-pedido">🛒 Continuar con el Pedido</a>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <h2>Galería</h2>
+        <div class="carrusel-contenedor">
+            <div class="carrusel-track">
+                <div class="carrusel-item">
+                    <img src="nuestro cafe.png" alt="Café listo para servir">
+                    <p>Nuestros Cafés</p>
+                </div>
+                <div class="carrusel-item">
+                    <img src="nuestro espacio.png" alt="Interior de la cafetería">
+                    <p>Nuestro Espacio</p>
+                </div>
+                <div class="carrusel-item">
+                    <img src="Reposteria artesanal.png" alt="Delicioso postre">
+                    <p>Repostería Artesanal</p>
+                </div>
+                <div class="carrusel-item">
+                    <img src="especialidades.png" alt="Especialidades">
+                    <p>Especialidades</p>
+                </div>
+                <div class="carrusel-item">
+                    <img src="galleta horneada.png" alt="Variedad de galletas">
+                    <p>Recién Horneado</p>
+                </div>
+                <div class="carrusel-item">
+                    <img src="Terraza.png" alt="Terraza">
+                    <p>Recién Horneado</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="pago">
+        <h2>Haz tu Pedido</h2>
+        
+        <div class="resumen-cuenta">
+            <h3 style="color: #d4a373; font-family: 'Georgia', serif; margin-bottom: 15px;">🛒 Tu Carrito de Compras</h3>
+            <table class="tabla-carrito">
+                <thead>
+                    <tr>
+                        <th>Producto</th>
+                        <th>Precio</th>
+                        <th>Cantidad</th>
+                        <th>Subtotal</th>
+                        <th>Acción</th>
+                    </tr>
+                </thead>
+                <tbody id="cuerpo-carrito">
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #c9bdae;">Tu carrito está vacío. Selecciona productos del menú.</td>
+                    </tr>
+                </tbody>
+            </table>
+            <p>Productos diferentes: <span id="lista-resumen">Ninguno</span></p>
+            <h3>Total de tu Orden: <span id="monto-total">$0.00</span></h3>
+        </div>
+
+        <form id="form-pedido" onsubmit="procesarPago(event)">
+            <!-- Datos del Cliente -->
+            <div class="form-grupo">
+                <label for="nombre-cliente">Nombre Completo:</label>
+                <input type="text" id="nombre-cliente" required placeholder="Ej. Juan Pérez">
+            </div>
+
+            <div class="form-fila" style="display: flex; gap: 15px; margin-bottom: 15px;">
+                <div class="form-columna" style="flex: 1;">
+                    <label for="correo-cliente">Correo Electrónico:</label>
+                    <input type="email" id="correo-cliente" required placeholder="ejemplo@correo.com" style="width: 100%; padding: 14px; border: 2px solid var(--color-tarjeta-borde); border-radius: 8px; background-color: var(--color-fondo-oscuro); color: var(--color-blanco);">
+                </div>
+                <div class="form-columna" style="flex: 1;">
+                    <label for="tel-cliente">Número de Contacto:</label>
+                    <input type="tel" id="tel-cliente" required placeholder="5512345678" maxlength="10" style="width: 100%; padding: 14px; border: 2px solid var(--color-tarjeta-borde); border-radius: 8px; background-color: var(--color-fondo-oscuro); color: var(--color-blanco);">
+                </div>
+            </div>
+
+            <div class="form-grupo" style="margin-top: 20px;">
+                <label>Método de Entrega:</label>
+                <div class="opciones-pago">
+                    <label>
+                        <input type="radio" name="entrega" value="mostrador" onclick="cambiarMetodoEntrega('mostrador')" checked required> 🏪 Recoger en Mostrador
+                    </label>
+                    <label>
+                        <input type="radio" name="entrega" value="envio" onclick="cambiarMetodoEntrega('envio')"> 🛵 Envío a Domicilio
+                    </label>
+                </div>
+            </div>
+
+            <div id="seccion-direccion" class="campos-tarjeta" style="display: none; margin-bottom: 20px;">
+                <div class="form-grupo">
+                    <label for="direccion-envio">Dirección Completa de Envío:</label>
+                    <input type="text" id="direccion-envio" placeholder="Calle, Número, Colonia, C.P.">
+                </div>
+            </div>
+
+            <div class="form-grupo" style="margin-top: 20px;">
+                <label>Método de Pago:</label>
+                <div class="opciones-pago">
+                    <label>
+                        <input type="radio" name="metodo" value="tarjeta" onclick="cambiarMetodoPago('tarjeta')" required> 💳 Tarjeta
+                    </label>
+                    <label>
+                        <input type="radio" name="metodo" value="efectivo" onclick="cambiarMetodoPago('efectivo')"> 💵 Efectivo
+                    </label>
+                </div>
+            </div>
+
+            <div id="seccion-tarjeta" class="campos-tarjeta" style="display: none;">
+                <div class="form-grupo">
+                    <label for="num-tarjeta">Número de Tarjeta:</label>
+                    <input type="text" id="num-tarjeta" placeholder="0000 0000 0000 0000" maxlength="19">
+                </div>
+                <div class="form-fila" style="display: flex; gap: 15px;">
+                    <div class="form-columna" style="flex: 1;">
+                        <label for="expiracion">Vencimiento:</label>
+                        <input type="text" id="expiracion" placeholder="MM/AA" maxlength="5">
+                    </div>
+                    <div class="form-columna" style="flex: 1;">
+                        <label for="cvv">CVV:</label>
+                        <input type="password" id="cvv" placeholder="123" maxlength="3">
+                    </div>
+                </div>
+            </div>
+
+            <div id="seccion-efectivo" class="info-efectivo" style="display: none;">
+                <p>📌 Orden confirmada en efectivo. Prepararemos tu pedido y podrás realizar el pago directamente al recibirlo o recogerlo.</p>
+            </div>
+
+            <button type="submit" class="btn-pagar">Confirmar Pedido</button>
+            
+            <div style="display: flex; gap: 10px; margin-top: 10px;">
+                <button type="button" class="btn-pagar" style="background: #f4a261; color: white; flex: 1; border: 1px solid #e76f51;" onclick="soloVaciarCarrito()">🧹 Limpiar Carrito</button>
+                <button type="button" class="btn-pagar" style="background: #8b2626; color: white; flex: 1; border: 1px solid #b23b3b;" onclick="cancelarTodoYRegresar()">❌ Cancelar Orden</button>
+            </div>
+        </form>
+    </section>
+
+    <div id="modal-ticket" class="modal-overlay" style="display: none;">
+        <div class="ticket-contenedor">
+            <div class="icono-aprobado">✓</div>
+            <h2 id="ticket-titulo-metodo">¡Pago Aprobado!</h2>
+            <div class="ticket-estado" id="ticket-estado-texto">Transacción Exitosa</div>
+            
+            <div class="ticket-detalles">
+                <div class="ticket-fila">
+                    <span>Establecimiento:</span>
+                    <strong>Cafetería Dulce Aroma</strong>
+                </div>
+                <div class="ticket-fila">
+                    <span>Cliente:</span>
+                    <strong id="ticket-nombre">---</strong>
+                </div>
+                <div class="ticket-fila">
+                    <span>Entrega:</span>
+                    <strong id="ticket-entrega">---</strong>
+                </div>
+                <div class="ticket-fila">
+                    <span>Método:</span>
+                    <strong id="ticket-metodo">---</strong>
+                </div>
+                <div class="ticket-fila">
+                    <span>Productos:</span>
+                    <strong id="ticket-productos" style="text-align: right; max-width: 60%; word-wrap: break-word; font-size: 0.85em;">---</strong>
+                </div>
+                <div class="ticket-fila total">
+                    <span>Monto Total:</span>
+                    <span id="ticket-total">$0.00</span>
+                </div>
+            </div>
+
+            <div class="ticket-mensaje-metodo" id="ticket-instrucciones"></div>
+
+            <button class="btn-cerrar-ticket" onclick="cerrarTicket()">Listo, Entendido</button>
+        </div>
+    </div>
+
+    <section id="contacto">
+        <h2>Contáctanos</h2>
+        <p><strong>Ubicación:</strong> Av. Principal #123, Colonia Centro, Ciudad de México</p>
+        
+        <div class="mapa-contenedor">
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d3869.0752438842032!2d-99.0051133107171!3d19.370942204209282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1ses-419!2smx" width="100%" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+
+        <p><strong>Teléfono/WhatsApp:</strong> <a href="https://wa.me/525622169803" target="_blank">(55) 5622169803</a></p>
+        <p><strong>Horario:</strong> Lunes a Viernes de 7:00 a 20:00, Sábados y Domingos de 8:00 a 19:00</p>
+    </section>
+
+    <footer>
+        <p>© 2026 Cafetería Dulce Aroma. Todos los derechos reservados.</p>
+    </footer>
+
+    <a href="#" class="btn-inicio" title="Volver al inicio">⬆</a>
+
+    <script>
+        let carritoCantidades = {};
+
+        const inputTarjeta = document.getElementById('num-tarjeta');
+        if (inputTarjeta) {
+            inputTarjeta.addEventListener('input', (e) => {
+                let valor = e.target.value.replace(/\s+/g, '').replace(/[^0-9]/gi, '');
+                let combinaciones = [];
+                for (let i = 0; i < valor.length; i += 4) {
+                    combinaciones.push(valor.substring(i, i + 4));
+                }
+                e.target.value = combinaciones.join(' ');
+            });
+        }
+
+        const inputExpiracion = document.getElementById('expiracion');
+        if (inputExpiracion) {
+            inputExpiracion.addEventListener('input', (e) => {
+                let valor = e.target.value.replace(/\//g, '').replace(/[^0-9]/gi, '');
+                if (valor.length > 2) {
+                    e.target.value = valor.substring(0, 2) + '/' + valor.substring(2, 4);
+                } else {
+                    e.target.value = valor;
+                }
+            });
+        }
+
+        const inputTelefono = document.getElementById('tel-cliente');
+        if (inputTelefono) {
+            inputTelefono.addEventListener('input', (e) => {
+                e.target.value = e.target.value.replace(/[^0-9]/g, '');
+            });
+        }
+        
+        function toggleSeleccion(tarjeta) {
+            const checkbox = tarjeta.querySelector('.chk-producto');
+            checkbox.checked = !checkbox.checked;
+            
+            const nombre = checkbox.getAttribute('data-nombre');
+            if(checkbox.checked) {
+                tarjeta.classList.add('seleccionado');
+                if (!carritoCantidades[nombre]) {
+                    carritoCantidades[nombre] = 1;
+                }
+            } else {
+                tarjeta.classList.remove('seleccionado');
+                delete carritoCantidades[nombre];
+            }
+            actualizarTotal();
+        }
+
+        function modificarDesdeCheckbox(checkbox) {
+            const tarjeta = checkbox.closest('.menu-item');
+            const nombre = checkbox.getAttribute('data-nombre');
+            if(checkbox.checked) {
+                tarjeta.classList.add('seleccionado');
+                if (!carritoCantidades[nombre]) {
+                    carritoCantidades[nombre] = 1;
+                }
+            } else {
+                tarjeta.classList.remove('seleccionado');
+                delete carritoCantidades[nombre];
+            }
+            actualizarTotal();
+        }
+
+        function cambiarCantidad(nombre, cambio) {
+            if (carritoCantidades[nombre]) {
+                carritoCantidades[nombre] += cambio;
+                if (carritoCantidades[nombre] <= 0) {
+                    eliminarDelCarrito(nombre);
+                    return;
+                }
+                actualizarTotal();
+            }
+        }
+
+        function eliminarDelCarrito(nombre) {
+            delete carritoCantidades[nombre];
+            const checkboxes = document.querySelectorAll('.chk-producto');
+            checkboxes.forEach(chk => {
+                if (chk.getAttribute('data-nombre') === nombre) {
+                    chk.checked = false;
+                    chk.closest('.menu-item').classList.remove('seleccionado');
+                }
+            });
+            actualizarTotal();
+        }
+
+        function actualizarTotal() {
+            const checkboxes = document.querySelectorAll('.chk-producto');
+            const cuerpoCarrito = document.getElementById('cuerpo-carrito');
+            let total = 0;
+            let productosSeleccionados = [];
+            let htmlCarrito = '';
+
+            checkboxes.forEach(chk => {
+                const nombre = chk.getAttribute('data-nombre');
+                const precio = parseFloat(chk.getAttribute('data-precio'));
+                const tarjeta = chk.closest('.menu-item');
+
+                if (chk.checked) {
+                    tarjeta.classList.add('seleccionado');
+                    if (!carritoCantidades[nombre]) {
+                        carritoCantidades[nombre] = 1;
+                    }
+                    
+                    let cantidad = carritoCantidades[nombre];
+                    let subtotalCalculado = precio * cantidad;
+                    total += subtotalCalculado;
+                    productosSeleccionados.push(`${nombre} (x${cantidad})`);
+
+                    htmlCarrito += `
+                        <tr>
+                            <td>${nombre}</td>
+                            <td>$${precio.toFixed(2)}</td>
+                            <td>
+                                <button type="button" style="padding:2px 8px; cursor:pointer;" onclick="cambiarCantidad('${nombre}', -1)">-</button>
+                                <span style="margin: 0 10px; font-weight:bold;">${cantidad}</span>
+                                <button type="button" style="padding:2px 8px; cursor:pointer;" onclick="cambiarCantidad('${nombre}', 1)">+</button>
+                            </td>
+                            <td>$${subtotalCalculado.toFixed(2)}</td>
+                            <td><button type="button" style="background:#8b2626; color:white; border:none; padding:4px 8px; cursor:pointer; border-radius:4px;" onclick="eliminarDelCarrito('${nombre}')">🗑</button></td>
+                        </tr>
+                    `;
+                } else {
+                    tarjeta.classList.remove('seleccionado');
+                }
+            });
+
+            if(productosSeleccionados.length > 0) {
+                cuerpoCarrito.innerHTML = htmlCarrito;
+                document.getElementById('lista-resumen').innerText = productosSeleccionados.join(', ');
+            } else {
+                cuerpoCarrito.innerHTML = `
+                    <tr>
+                        <td colspan="5" style="text-align: center; color: #c9bdae;">Tu carrito está vacío. Selecciona productos del menú.</td>
+                    </tr>
+                `;
+                document.getElementById('lista-resumen').innerText = "Ninguno";
+            }
+
+            document.getElementById('monto-total').innerText = `$${total.toFixed(2)}`;
+        }
+
+        function cambiarMetodoEntrega(metodo) {
+            const seccionDireccion = document.getElementById('seccion-direccion');
+            const inputDireccion = document.getElementById('direccion-envio');
+
+            if (metodo === 'envio') {
+                seccionDireccion.style.display = 'block';
+                inputDireccion.required = true;
+            } else {
+                seccionDireccion.style.display = 'none';
+                inputDireccion.required = false;
+                inputDireccion.value = '';
+            }
+        }
+
+        function cambiarMetodoPago(metodo) {
+            const seccionTarjeta = document.getElementById('seccion-tarjeta');
+            const seccionEfectivo = document.getElementById('seccion-efectivo');
+            const inputsTarjeta = seccionTarjeta.querySelectorAll('input');
+
+            if (metodo === 'tarjeta') {
+                seccionTarjeta.style.display = 'block';
+                seccionEfectivo.style.display = 'none';
+                inputsTarjeta.forEach(input => input.required = true);
+            } else {
+                seccionTarjeta.style.display = 'none';
+                seccionEfectivo.style.display = 'block';
+                inputsTarjeta.forEach(input => input.required = false);
+            }
+        }
+
+        function procesarPago(event) {
+            event.preventDefault();
+            const nombre = document.getElementById('nombre-cliente').value;
+            const correo = document.getElementById('correo-cliente').value;
+            const telefono = document.getElementById('tel-cliente').value;
+            
+            const entregaElement = document.querySelector('input[name="entrega"]:checked');
+            const metodoElement = document.querySelector('input[name="metodo"]:checked');
+            
+            if (!metodoElement) {
+                alert("Por favor, selecciona un método de pago.");
+                return;
+            }
+            
+            const metodo = metodoElement.value;
+            const entrega = entregaElement.value;
+            const totalTexto = document.getElementById('monto-total').innerText;
+            const productosTexto = document.getElementById('lista-resumen').innerText;
+            const direccionEnvio = document.getElementById('direccion-envio').value;
+
+            if (totalTexto === "$0.00") {
+                alert("Por favor, selecciona al menos un producto del menú antes de confirmar tu pedido.");
+                return;
+            }
+
+            if (entrega === 'envio' && !direccionEnvio.trim()) {
+                alert("❌ Por favor, ingresa una dirección válida para el envío.");
+                return;
+            }
+
+            if (metodo === 'tarjeta') {
+                const numeroTarjeta = inputTarjeta.value.replace(/\s/g, '');
+                const expiracion = inputExpiracion.value;
+                const cvv = document.getElementById('cvv').value;
+
+                if (numeroTarjeta.length < 16 || !/^\d{2}\/\d{2}$/.test(expiracion) || cvv.length < 3) {
+                    alert("❌ Por favor, llena correctamente todos los campos de la tarjeta.");
+                    return;
+                }
+            }
+
+            const datosOrden = {
+                cliente: nombre,
+                correo: correo,
+                telefono: telefono,
+                entrega: entrega,
+                direccion: entrega === 'envio' ? direccionEnvio : 'Mostrador',
+                metodo: metodo,
+                total: totalTexto,
+                productos: carritoCantidades 
+            };
+
+            fetch('guardar_orden.php', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(datosOrden)
+            })
+            .then(response => response.json())
+            .then(data => {
+                if(data.status === "success") {
+                    mostrarModalTicket(nombre, metodo, totalTexto, productosTexto, entrega, direccionEnvio);
+                } else {
+                    alert("Error en la Base de Datos: " + data.mensaje);
+                }
+            })
+            .catch(error => {
+                console.error("Error de conexión:", error);
+                mostrarModalTicket(nombre, metodo, totalTexto, productosTexto, entrega, direccionEnvio);
+            });
+        }
+
+        function mostrarModalTicket(nombre, metodo, totalTexto, productosTexto, entrega, direccionEnvio) {
+            const icono = document.querySelector('.icono-aprobado');
+            const tituloModal = document.getElementById('ticket-titulo-metodo');
+            const estadoModal = document.getElementById('ticket-estado-texto');
+            const instruccionesModal = document.getElementById('ticket-instrucciones');
+            const entregaTicket = document.getElementById('ticket-entrega');
+
+            icono.innerText = "✓";
+            
+            if(entrega === 'envio') {
+                entregaTicket.innerText = "🛵 Domicilio (" + direccionEnvio + ")";
+            } else {
+                entregaTicket.innerText = "🏪 Mostrador";
+            }
+
+            if (metodo === 'tarjeta') {
+                icono.style.backgroundColor = "#e8f5e9";
+                icono.style.color = "#2e7d32";
+                tituloModal.innerText = "¡Pago Aprobado!";
+                estadoModal.innerText = "Transacción Exitosa";
+                estadoModal.style.color = "#2e7d32";
+                document.getElementById('ticket-metodo').innerText = "💳 Tarjeta Bancaria";
+                instruccionesModal.innerHTML = `☕ <strong>¡Gracias por tu compra, ${nombre}!</strong> Tu pago ha sido processed de forma segura. ${entrega === 'envio' ? 'Enviaremos tu pedido pronto.' : 'Puedes pasar a recoger en breve.'}`;
+            } else {
+                icono.style.backgroundColor = "#fff3e0";
+                icono.style.color = "#e65100";
+                tituloModal.innerText = "¡Pedido Confirmado!";
+                estadoModal.innerText = "Pendiente de Pago";
+                estadoModal.style.color = "#f57c00"; 
+                document.getElementById('ticket-metodo').innerText = "💵 Efectivo";
+                instruccionesModal.innerHTML = `📌 <strong>¡Orden registrada, ${nombre}!</strong> El almacén se ha actualizado. Paga directamente ${entrega === 'envio' ? 'al repartidor al recibir' : 'en caja al recoger'}.`;
+            }
+            
+            document.getElementById('ticket-nombre').innerText = nombre;
+            document.getElementById('ticket-productos').innerText = productosTexto;
+            document.getElementById('ticket-total').innerText = totalTexto;
+            document.getElementById('modal-ticket').style.display = 'flex';
+        }
+
+        function cerrarTicket() {
+            document.getElementById('modal-ticket').style.display = 'none';
+            window.location.href = "#";
+        }
+
+        function soloVaciarCarrito() {
+            const totalTexto = document.getElementById('monto-total').innerText;
+            const productosTexto = document.getElementById('lista-resumen').innerText;
+            const nombre = document.getElementById('nombre-cliente').value || "Cliente";
+
+            if (totalTexto === "$0.00") {
+                alert("El carrito ya está vacío.");
+                return;
+            }
+
+            if (confirm("¿Estás seguro de que deseas limpiar todos los productos del carrito?")) {
+                const icono = document.querySelector('.icono-aprobado');
+                const tituloModal = document.getElementById('ticket-titulo-metodo');
+                const estadoModal = document.getElementById('ticket-estado-texto');
+                const instruccionesModal = document.getElementById('ticket-instrucciones');
+                const entregaTicket = document.getElementById('ticket-entrega');
+
+                icono.innerText = "🧹";
+                icono.style.backgroundColor = "#fff3e0";
+                icono.style.color = "#e65100";
+                
+                tituloModal.innerText = "¡Carrito Vaciado!";
+                estadoModal.innerText = "Productos Removidos";
+                estadoModal.style.color = "#e65100";
+                
+                document.getElementById('ticket-metodo').innerText = "---";
+                entregaTicket.innerText = "---";
+                
+                instruccionesModal.innerHTML = `🧹 <strong>Se han quitado los productos de tu cuenta.</strong> El carrito de ${nombre} vuelve a estar en ceros listo para una nueva selección.`;
+
+                document.getElementById('ticket-nombre').innerText = nombre;
+                document.getElementById('ticket-productos').innerText = productosTexto;
+                document.getElementById('ticket-total').innerText = totalTexto;
+                
+                document.getElementById('modal-ticket').style.display = 'flex';
+
+                document.querySelectorAll('.chk-producto').forEach(chk => chk.checked = false);
+                carritoCantidades = {};
+                actualizarTotal();
+            }
+        }
+
+        function cancelarTodoYRegresar() {
+            const nombre = document.getElementById('nombre-cliente').value || "Cliente";
+            const totalTexto = document.getElementById('monto-total').innerText;
+            const productosTexto = document.getElementById('lista-resumen').innerText;
+            const entregaElement = document.querySelector('input[name="entrega"]:checked');
+            const entrega = entregaElement ? entregaElement.value : 'mostrador';
+            
+            if (totalTexto === "$0.00") {
+                alert("No hay productos en el carrito para cancelar.");
+                return;
+            }
+
+            if (confirm("¿Estás seguro de que deseas cancelar la orden? Se mostrará el comprobante de cancelación.")) {
+                const icono = document.querySelector('.icono-aprobado');
+                const tituloModal = document.getElementById('ticket-titulo-metodo');
+                const estadoModal = document.getElementById('ticket-estado-texto');
+                const instruccionesModal = document.getElementById('ticket-instrucciones');
+                const entregaTicket = document.getElementById('ticket-entrega');
+
+                icono.innerText = "✕";
+                icono.style.backgroundColor = "#ffebee";
+                icono.style.color = "#c62828";
+                
+                tituloModal.innerText = "¡Pedido Cancelado!";
+                estadoModal.innerText = "Orden Anulada";
+                estadoModal.style.color = "#c62828";
+                
+                document.getElementById('ticket-metodo').innerText = "---";
+                entregaTicket.innerText = entrega === 'envio' ? "🛵 Domicilio" : "🏪 Mostrador";
+                
+                instruccionesModal.innerHTML = `❌ <strong>La orden de ${nombre} ha sido cancelada con éxito.</strong> Ningún cargo ha sido efectuado y los productos se han devuelto al inventario.`;
+
+                document.getElementById('ticket-nombre').innerText = name = nombre;
+                document.getElementById('ticket-productos').innerText = productosTexto;
+                document.getElementById('ticket-total').innerText = totalTexto;
+                
+                document.getElementById('modal-ticket').style.display = 'flex';
+
+
+                document.getElementById('form-pedido').reset();
+                document.querySelectorAll('.chk-producto').forEach(chk => chk.checked = false);
+                carritoCantidades = {};
+                actualizarTotal();
+                document.getElementById('seccion-tarjeta').style.display = 'none';
+                document.getElementById('seccion-efectivo').style.display = 'none';
+                document.getElementById('seccion-direccion').style.display = 'none';
+            }
+        }
+    </script>
+</body>
+</html>
